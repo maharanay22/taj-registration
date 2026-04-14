@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janasena Registration — Team Atlanta</title>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:#CC0000; --red2:#E80000; --red3:#FF2222;
+  --red-glow:rgba(220,0,0,0.18);
+  --black:#0A0A0A; --black2:#111111; --black3:#1A1A1A; --black4:#222222;
+  --white:#FFFFFF; --offwhite:#F5F0F0;
+  --gold:#FFD700; --gold2:#FFC107;
+  --text:#FFFFFF; --text-muted:#CCBBBB; --text-dim:#886666;
+  --border:#3A1A1A; --border2:#CC000040;
+  --success:#22CC88;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--black);color:var(--text);min-height:100vh;overflow-x:hidden;}
+.bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(200,0,0,0.22) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 0% 100%,rgba(180,0,0,0.12) 0%,transparent 50%);}
+.bg-star{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;opacity:0.04;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,2 61,35 96,35 68,57 79,91 50,70 21,91 32,57 4,35 39,35' fill='%23CC0000'/%3E%3C/svg%3E") center/contain no-repeat;}
+.hero{position:relative;z-index:10;background:linear-gradient(180deg,#1A0000 0%,#0D0000 60%,transparent 100%);border-bottom:2px solid var(--red);padding:0 0 40px;text-align:center;overflow:hidden;}
+.hero-topbar{height:5px;background:linear-gradient(90deg,#CC0000,#FF4444,#FFD700,#FF4444,#CC0000);background-size:200% 100%;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:0% 0%}100%{background-position:200% 0%}}
+.hero-inner{padding:36px 24px 0;max-width:680px;margin:0 auto;}
+.logo-wrap{position:relative;display:inline-block;margin-bottom:24px;}
+.logo-img{width:160px;height:160px;border-radius:50%;border:4px solid var(--red);box-shadow:0 0 0 8px rgba(204,0,0,0.15),0 0 40px rgba(204,0,0,0.4),0 0 80px rgba(204,0,0,0.15);display:block;animation:logoGlow 3s ease-in-out infinite alternate;}
+@keyframes logoGlow{from{box-shadow:0 0 0 8px rgba(204,0,0,0.15),0 0 30px rgba(204,0,0,0.35),0 0 60px rgba(204,0,0,0.1)}to{box-shadow:0 0 0 8px rgba(204,0,0,0.25),0 0 50px rgba(204,0,0,0.55),0 0 100px rgba(204,0,0,0.2)}}
+.logo-ring{position:absolute;inset:-12px;border-radius:50%;border:2px solid rgba(204,0,0,0.3);animation:spin 20s linear infinite;}
+.logo-ring::before{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--red);}
+@keyframes spin{to{transform:rotate(360deg)}}
+.star-badge{position:absolute;bottom:4px;right:4px;width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 12px rgba(255,215,0,0.5);}
+.party-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(204,0,0,0.15);border:1px solid rgba(204,0,0,0.4);padding:6px 18px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FF8888;margin-bottom:16px;}
+.hero-title{font-family:'Teko',sans-serif;font-size:clamp(36px,8vw,72px);font-weight:700;line-height:0.95;letter-spacing:0.02em;color:var(--white);text-transform:uppercase;margin-bottom:6px;text-shadow:0 4px 20px rgba(204,0,0,0.4);}
+.hero-title .red{color:var(--red3)}.hero-title .gold{color:var(--gold)}
+.hero-sub{font-family:'Teko',sans-serif;font-size:clamp(18px,3vw,26px);color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:18px;}
+.divider-line{display:flex;align-items:center;gap:12px;justify-content:center;margin:18px auto;max-width:400px;}
+.divider-line .dl{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);}
+.divider-line .star-icon{color:var(--gold);font-size:16px;}
+.hero-desc{font-size:14px;color:var(--text-muted);line-height:1.8;max-width:520px;margin:0 auto;}
+.quote-banner{margin:24px auto 0;max-width:480px;background:linear-gradient(135deg,rgba(204,0,0,0.2),rgba(204,0,0,0.05));border:1px solid rgba(204,0,0,0.35);border-radius:12px;padding:14px 20px;font-style:italic;color:#FFAAAA;font-size:15px;font-weight:600;position:relative;}
+.quote-banner::before{content:'❝';position:absolute;top:-10px;left:16px;font-size:32px;color:var(--red);line-height:1;}
+.form-wrap{position:relative;z-index:10;max-width:720px;margin:0 auto;padding:0 20px 80px;}
+.sec-head{display:flex;align-items:center;gap:14px;margin:44px 0 18px;}
+.sec-num{width:38px;height:38px;flex-shrink:0;background:linear-gradient(135deg,var(--red),#990000);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-size:18px;font-weight:700;color:white;}
+.sec-title{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;color:var(--white);letter-spacing:0.05em;text-transform:uppercase;}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--red),transparent);}
+.card{background:#141414;border:1px solid #2A0A0A;border-radius:16px;padding:26px;margin-bottom:14px;position:relative;overflow:hidden;transition:border-color 0.3s;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);}
+.card:hover{border-color:rgba(204,0,0,0.4);}
+.field{margin-bottom:20px;}.field:last-child{margin-bottom:0;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:560px){.field-row{grid-template-columns:1fr}}
+label{display:block;font-size:11px;font-weight:800;color:#CC4444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+label .req{color:var(--gold);margin-left:3px;}
+.hint{font-size:12px;color:#886666;margin-bottom:8px;line-height:1.5;text-transform:none;font-weight:400;letter-spacing:0;}
+input[type="text"],input[type="email"],input[type="tel"],select,textarea{width:100%;background:#0A0A0A;border:1.5px solid #2A0A0A;border-radius:10px;padding:13px 16px;font-family:'Nunito',sans-serif;font-size:15px;color:var(--white);outline:none;transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none;}
+input::placeholder,textarea::placeholder{color:#443030;}
+input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(204,0,0,0.15);background:#0D0808;}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23CC4444' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
+select option{background:#1A0A0A;color:var(--white);}
+textarea{resize:vertical;min-height:90px;}
+.phone-row{display:flex;gap:10px;}.phone-prefix{width:120px;flex-shrink:0;}
+.mem-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.mem-pill{position:relative;}.mem-pill input{position:absolute;opacity:0;}
+.mem-pill label{display:flex;align-items:center;gap:8px;background:#0A0A0A;border:1.5px solid #2A0A0A;border-radius:100px;padding:10px 20px;cursor:pointer;font-size:14px;font-weight:700;color:#886666;transition:all 0.2s;text-transform:none;letter-spacing:0;}
+.mem-pill input:checked+label{border-color:var(--red);background:rgba(204,0,0,0.12);color:#FF8888;}
+.check-group{display:flex;flex-direction:column;gap:10px;}
+.choice-item{display:flex;align-items:flex-start;gap:12px;background:#0A0A0A;border:1.5px solid #2A0A0A;border-radius:10px;padding:13px 16px;cursor:pointer;transition:all 0.2s;user-select:none;}
+.choice-item:hover{border-color:rgba(204,0,0,0.5);background:rgba(204,0,0,0.06);}
+.choice-item input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--red);cursor:pointer;border:none;background:none;box-shadow:none;padding:0;}
+.choice-item:has(input:checked){border-color:var(--red);background:rgba(204,0,0,0.1);}
+.choice-label{font-size:14px;color:#DDBBBB;font-weight:700;}
+.choice-desc{font-size:12px;color:#664444;margin-top:3px;line-height:1.5;}
+.info-box{background:rgba(204,0,0,0.08);border:1px solid rgba(204,0,0,0.25);border-radius:10px;padding:12px 16px;font-size:13px;color:#FF9999;margin-top:10px;display:flex;gap:10px;align-items:flex-start;line-height:1.6;}
+.info-box .ico{flex-shrink:0;font-size:15px;margin-top:1px;}
+.info-box.green-box{background:rgba(34,204,136,0.07);border-color:rgba(34,204,136,0.25);color:#55CC99;}
+.submit-area{margin-top:40px;text-align:center;}
+.btn-submit{display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg,#CC0000 0%,#FF2222 50%,#CC0000 100%);background-size:200% 100%;color:white;font-family:'Teko',sans-serif;font-size:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border:none;border-radius:100px;padding:18px 56px;cursor:pointer;box-shadow:0 6px 30px rgba(204,0,0,0.5),0 0 0 2px rgba(204,0,0,0.3);transition:all 0.3s;position:relative;overflow:hidden;}
+.btn-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);transform:translateX(-100%);transition:transform 0.5s;}
+.btn-submit:hover::before{transform:translateX(100%);}
+.btn-submit:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(204,0,0,0.7),0 0 0 2px var(--red);}
+.btn-submit:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
+.btn-clear{display:inline-block;margin-top:16px;font-size:13px;color:var(--text-dim);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:'Nunito',sans-serif;}
+.privacy-note{margin-top:22px;font-size:12px;color:#553333;line-height:1.7;}
+.privacy-note a{color:#CC4444;}
+.spinner{display:none;width:20px;height:20px;border:3px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;}
+.btn-submit.loading .spinner{display:block;}
+.btn-submit.loading .btn-text{opacity:0.7;}
+.footer{position:relative;z-index:10;text-align:center;padding:30px 20px;border-top:1px solid #2A0A0A;font-size:12px;color:#553333;}
+.footer .f-logo{font-family:'Teko',sans-serif;font-size:20px;color:#CC4444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-inner>*{animation:fadeUp 0.5s ease both;}
+.hero-inner>*:nth-child(1){animation-delay:0.0s}
+.hero-inner>*:nth-child(2){animation-delay:0.1s}
+.hero-inner>*:nth-child(3){animation-delay:0.2s}
+.hero-inner>*:nth-child(4){animation-delay:0.3s}
+.hero-inner>*:nth-child(5){animation-delay:0.4s}
+.card{animation:fadeUp 0.4s ease both;}
+.success-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(10,0,0,0.97);align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px;}
+.success-overlay.show{display:flex;animation:fadeUp 0.5s ease;}
+.s-logo{width:120px;height:120px;border-radius:50%;border:3px solid var(--red);margin-bottom:24px;box-shadow:0 0 40px rgba(204,0,0,0.5);}
+.s-title{font-family:'Teko',sans-serif;font-size:56px;color:var(--white);letter-spacing:0.05em;line-height:1;}
+.s-red{color:var(--red3);}
+.s-sub{font-size:16px;color:var(--text-muted);max-width:420px;line-height:1.8;margin:12px auto 28px;}
+</style>
+</head>
+<body>
+<div class="bg-wrap"><div class="bg-star"></div></div>
+
+<div class="hero">
+  <div class="hero-topbar"></div>
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <div class="logo-ring"></div>
+      <img class="logo-img" src="janasena-logo.png" alt="Jana Sena"
+           onerror="this.style.cssText='width:160px;height:160px;border-radius:50%;border:4px solid var(--red);display:flex;align-items:center;justify-content:center;background:#1A0000;font-size:60px;';this.outerHTML='<div style=\'width:160px;height:160px;border-radius:50%;border:4px solid #CC0000;background:#1A0000;display:flex;align-items:center;justify-content:center;font-size:60px;box-shadow:0 0 40px rgba(204,0,0,0.4);\'>🦁</div>'">
+      <div class="star-badge">⭐</div>
+    </div>
+    <div class="party-tag">🦁 Official NRI Chapter · Atlanta, Georgia</div>
+    <div class="hero-title">
+      <div><span class="red">Janasena</span></div>
+      <div><span class="gold">Registration</span></div>
+      <div>Form</div>
+    </div>
+    <div class="hero-sub">Team Atlanta Janasena (TAJ) · Georgia, USA</div>
+    <div class="divider-line"><div class="dl"></div><div class="star-icon">✦</div><div class="dl"></div></div>
+    <p class="hero-desc">We invite all Jana Sena supporters and sympathisers residing in the Greater Atlanta area to officially register and be part of this movement. Jana Sena Party stands for service, transparency, and accountable leadership for the people of Andhra Pradesh.</p>
+    <div class="quote-banner">"Membership is the first step to leadership."</div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <form id="regForm" novalidate>
+
+    <!-- SECTION 1 -->
+    <div class="sec-head"><div class="sec-num">1</div><div class="sec-title">Personal Information</div><div class="sec-line"></div></div>
+    <div class="card">
+      <div class="field">
+        <label>Full Name <span class="req">★</span></label>
+        <div class="hint">Enter your name exactly as on your passport or Aadhar card.</div>
+        <input type="text" id="fullName" placeholder="e.g. Ravi Kumar Reddy" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Email Address <span class="req">★</span></label>
+          <div class="hint">Primary email for membership communications.</div>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label>Profession <span class="req">★</span></label>
+          <div class="hint">Current occupation or field.</div>
+          <input type="text" id="profession" placeholder="e.g. Software Engineer" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Aadhar / Passport Number <span class="req">★</span></label>
+        <div class="hint">Used strictly for identity verification — never shared externally.</div>
+        <input type="text" id="identity" placeholder="XXXX XXXX XXXX  or  A1234567" required>
+        <div class="info-box"><span class="ico">🔒</span> Your ID is encrypted and used only for membership deduplication. Never displayed or shared.</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="sec-head"><div class="sec-num">2</div><div class="sec-title">Contact &amp; Location</div><div class="sec-line"></div></div>
+    <div class="card">
+      <div class="field">
+        <label>Country of Residence <span class="req">★</span></label>
+        <select id="country" required>
+          <option value="" disabled selected>— Select your country —</option>
+          <option value="USA">🇺🇸 United States of America</option>
+          <option value="India">🇮🇳 India</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>US Phone Number <span class="req">★</span></label>
+        <div class="phone-row">
+          <div class="phone-prefix"><select style="opacity:0.7;pointer-events:none"><option>🇺🇸 +1</option></select></div>
+          <input type="tel" id="usPhone" placeholder="404 123 4567" required style="flex:1">
+        </div>
+      </div>
+      <div class="field">
+        <label>India Contact Number <span class="req">★</span></label>
+        <div class="phone-row">
+          <div class="phone-prefix"><select style="opacity:0.7;pointer-events:none"><option>🇮🇳 +91</option></select></div>
+          <input type="tel" id="indiaPhone" placeholder="98765 43210" required style="flex:1">
+        </div>
+      </div>
+      <div class="field">
+        <label>City / State in USA <span class="req">★</span></label>
+        <input type="text" id="usCity" placeholder="e.g. Atlanta, GA" required>
+      </div>
+      <div class="field">
+        <label>Home Constituency in AP/Telangana <span class="req">★</span></label>
+        <div class="hint">The assembly constituency you belong to back in India.</div>
+        <input type="text" id="constituency" placeholder="e.g. Vijayawada East, Eluru…" required>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="sec-head"><div class="sec-num">3</div><div class="sec-title">Membership Details</div><div class="sec-line"></div></div>
+    <div class="card">
+      <div class="field">
+        <label>Membership Type <span class="req">★</span></label>
+        <div class="mem-pills">
+          <div class="mem-pill"><input type="radio" name="memType" id="mt_new" value="New Membership" checked><label for="mt_new">🌟 New Membership</label></div>
+          <div class="mem-pill"><input type="radio" name="memType" id="mt_renew" value="Renewal"><label for="mt_renew">🔄 Renewal</label></div>
+          <div class="mem-pill"><input type="radio" name="memType" id="mt_other" value="Other"><label for="mt_other">✏️ Other</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Existing Membership Number</label>
+        <input type="text" id="memNumber" placeholder="e.g. JSP-ATL-2023-00456">
+      </div>
+      <div class="field">
+        <label>Referred By &amp; Contact Number <span class="req">★</span></label>
+        <input type="text" id="referredBy" placeholder="Name — +1 404 XXX XXXX" required>
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="sec-head"><div class="sec-num">4</div><div class="sec-title">Areas of Interest</div><div class="sec-line"></div></div>
+    <div class="card">
+      <div class="field">
+        <label>How would you like to serve?</label>
+        <div class="check-group">
+          <label class="choice-item"><input type="checkbox" value="Events & Community Outreach"><div><div class="choice-label">🎉 Events &amp; Community Outreach</div><div class="choice-desc">Organise gatherings, cultural programs, and community drives in Atlanta.</div></div></label>
+          <label class="choice-item"><input type="checkbox" value="Policy Research & Communication"><div><div class="choice-label">📝 Policy Research &amp; Communication</div><div class="choice-desc">Research, write-ups, and spreading Jana Sena's vision and policies.</div></div></label>
+          <label class="choice-item"><input type="checkbox" value="Digital & Social Media"><div><div class="choice-label">📱 Digital &amp; Social Media</div><div class="choice-desc">Create content, manage channels, or support online campaigns.</div></div></label>
+          <label class="choice-item"><input type="checkbox" value="Fundraising & Donations"><div><div class="choice-label">💰 Fundraising &amp; Donations</div><div class="choice-desc">Support the financial strength of Team Atlanta's activities.</div></div></label>
+          <label class="choice-item"><input type="checkbox" value="NRI Welfare & Legal Support"><div><div class="choice-label">🤝 NRI Welfare &amp; Legal Support</div><div class="choice-desc">Assist fellow Telugu NRIs with legal, consular, and social guidance.</div></div></label>
+          <label class="choice-item"><input type="checkbox" value="Youth & Student Wing"><div><div class="choice-label">🎓 Youth &amp; Student Wing</div><div class="choice-desc">Engage students and young professionals in the movement.</div></div></label>
+        </div>
+      </div>
+      <div class="field" style="margin-top:20px">
+        <label>Message to Team Atlanta</label>
+        <textarea id="message" placeholder="I want to join because…"></textarea>
+      </div>
+      <div class="info-box green-box" style="margin-top:16px">
+        <span class="ico">✅</span>
+        By submitting this form, you confirm that all information is accurate. A Team Atlanta coordinator will contact you within 3–5 business days.
+      </div>
+    </div>
+
+    <div class="submit-area">
+      <button type="button" class="btn-submit" id="submitBtn" onclick="handleSubmit()">
+        <div class="spinner"></div>
+        <span class="btn-text">JAI JANA SENA — REGISTER</span>
+        <span class="btn-text">✦</span>
+      </button>
+      <br>
+      <button type="button" class="btn-clear" onclick="clearForm()">Clear all fields</button>
+      <div id="statusMsg" style="margin-top:14px;font-size:14px;font-weight:700;display:none"></div>
+      <p class="privacy-note">🔒 Your data is stored securely. Never sold or shared with third parties.<br>Questions? Contact <a href="mailto:teamatlantajanasena@gmail.com">teamatlantajanasena@gmail.com</a></p>
+    </div>
+
+  </form>
+</div>
+
+<div class="footer">
+  <div class="f-logo">⭐ Janasena Registration Form ⭐</div>
+  టీం అట్లాంటా జనసేన (తాజ్) · NRI Chapter · Georgia, USA<br>
+  Serving the Telugu community with pride.
+</div>
+
+<!-- Success overlay -->
+<div class="success-overlay" id="successOverlay">
+  <div style="font-size:80px;margin-bottom:20px">🦁</div>
+  <div class="s-title">JAI <span class="s-red">JANA SENA!</span></div>
+  <div class="s-sub">Thank you for submitting your Janasena Registration Form.<br>Your application has been recorded and a coordinator will reach you within 3–5 business days.<br><br><strong style="color:#FFD700">Together we rise. జయ జనసేన! 🦁</strong></div>
+  <button class="btn-submit" onclick="document.getElementById('successOverlay').classList.remove('show');document.getElementById('regForm').reset();" style="font-size:18px;padding:14px 36px">Register Another Member</button>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script>
+// ── FIREBASE CONFIG ─────────────────────────────────────────────
+// Replace with YOUR Firebase project config (from Firebase Console)
+const firebaseConfig = {
+  apiKey:            "AIzaSyBOfwe0EIMK7DLg3SdOqrnPZav9JwkM0sk",
+  authDomain:        "taj-registration.firebaseapp.com",
+  projectId:         "taj-registration",
+  storageBucket:     "taj-registration.firebasestorage.app",
+  messagingSenderId: "715579516634",
+  appId:             "1:715579516634:web:52287f62b8a9fb635fe7e3",
+  databaseURL:       "https://taj-registration-default-rtdb.firebaseio.com"
+};
+// ────────────────────────────────────────────────────────────────
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+function getInterests() {
+  return Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(b => b.value).join(', ');
+}
+function getMemType() {
+  const r = document.querySelector('input[name="memType"]:checked');
+  return r ? r.value : 'New Membership';
+}
+
+async function handleSubmit() {
+  const btn = document.getElementById('submitBtn');
+  const statusMsg = document.getElementById('statusMsg');
+  statusMsg.style.display = 'none';
+
+  const fieldIds = ['fullName','email','profession','identity','country','usPhone','indiaPhone','usCity','constituency','referredBy'];
+  let valid = true, firstInvalid = null;
+
+  fieldIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      el.style.borderColor = '#FF2222';
+      el.style.boxShadow   = '0 0 0 3px rgba(255,34,34,0.2)';
+      valid = false;
+      if (!firstInvalid) firstInvalid = el;
+      el.addEventListener('input', () => { el.style.borderColor=''; el.style.boxShadow=''; }, { once:true });
+    }
+  });
+
+  if (!valid) {
+    firstInvalid.scrollIntoView({ behavior:'smooth', block:'center' });
+    statusMsg.textContent = '⚠️ Please fill all required fields marked with ★';
+    statusMsg.style.color = '#FF4466';
+    statusMsg.style.display = 'block';
+    return;
+  }
+
+  btn.classList.add('loading'); btn.disabled = true;
+
+  try {
+    await db.ref('taj_registrations').push({
+      timestamp:    new Date().toISOString(),
+      fullName:     document.getElementById('fullName').value.trim(),
+      email:        document.getElementById('email').value.trim(),
+      profession:   document.getElementById('profession').value.trim(),
+      identity:     document.getElementById('identity').value.trim(),
+      country:      document.getElementById('country').value,
+      usPhone:      '+1 ' + document.getElementById('usPhone').value.trim(),
+      indiaPhone:   '+91 ' + document.getElementById('indiaPhone').value.trim(),
+      usCity:       document.getElementById('usCity').value.trim(),
+      constituency: document.getElementById('constituency').value.trim(),
+      memType:      getMemType(),
+      memNumber:    document.getElementById('memNumber').value.trim(),
+      referredBy:   document.getElementById('referredBy').value.trim(),
+      interests:    getInterests(),
+      message:      document.getElementById('message').value.trim(),
+    });
+
+    document.getElementById('successOverlay').classList.add('show');
+    window.scrollTo({ top:0, behavior:'smooth' });
+
+  } catch (err) {
+    statusMsg.textContent = '❌ Submission failed: ' + err.message;
+    statusMsg.style.color = '#FF4466';
+    statusMsg.style.display = 'block';
+    console.error(err);
+  } finally {
+    btn.classList.remove('loading'); btn.disabled = false;
+  }
+}
+
+function clearForm() {
+  if (confirm('Clear all fields?')) {
+    document.getElementById('regForm').reset();
+    document.querySelectorAll('input,select,textarea').forEach(f => { f.style.borderColor=''; f.style.boxShadow=''; });
+  }
+}
+</script>
+</body>
+</html>
