@@ -485,17 +485,8 @@ async function handleSubmit() {
   };
 
   try {
-    // POST to FastAPI → FastAPI saves to Firebase + sends emails
-    const resp = await fetch("/api/register", {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify(data)
-    });
-
-    if (!resp.ok) {
-      const err = await resp.json().catch(() => ({}));
-      throw new Error(err.detail || "Server error " + resp.status);
-    }
+    // Save directly to Firebase Realtime Database
+    await db.ref("taj_registrations").push(data);
 
     document.getElementById("successOverlay").classList.add("show");
     window.scrollTo({ top:0, behavior:"smooth" });
