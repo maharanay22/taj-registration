@@ -290,7 +290,7 @@ const API_URL = window.location.origin;
 
 // ── EMAILJS ─────────────────────────────────────────────────────
 emailjs.init("uDAlNCrChI0s-pu89"); // Your EmailJS public key
-const EJ_SERVICE  = "service_7avbgbk";      // Your EmailJS service ID
+const EJ_SERVICE  = "service_in8q8ll";      // Your EmailJS service ID
 const EJ_MEMBER   = "template_taj_member";   // Create this template in EmailJS
 const EJ_TEAM     = "template_taj_team";     // Create this template in EmailJS
 
@@ -487,8 +487,42 @@ async function handleSubmit() {
   };
 
   try {
-    // Save directly to Firebase Realtime Database
+    // 1) Save to Firebase
     await db.ref("taj_registrations").push(data);
+
+    // 2) Send confirmation email to member
+    var ts = new Date().toLocaleString("en-US", {timeZone:"America/New_York"});
+    emailjs.send("service_in8q8ll", "template_taj_member", {
+      to_name:      data.fullName,
+      to_email:     data.email,
+      profession:   data.profession,
+      us_location:  data.usCity + ", " + data.usState,
+      us_phone:     data.usPhone,
+      india_phone:  data.indiaPhone,
+      india_state:  data.indiaState,
+      district:     data.district,
+      constituency: data.constituency,
+      referred_by:  data.referredBy || "N/A",
+      interests:    data.interests  || "Not specified",
+      timestamp:    ts
+    }).catch(function(e){ console.warn("Member email failed:", e); });
+
+    // 3) Send notification email to team
+    emailjs.send("service_in8q8ll", "template_taj_team", {
+      member_name:  data.fullName,
+      email:        data.email,
+      profession:   data.profession,
+      us_location:  data.usCity + ", " + data.usState,
+      us_phone:     data.usPhone,
+      india_phone:  data.indiaPhone,
+      india_state:  data.indiaState,
+      district:     data.district,
+      constituency: data.constituency,
+      referred_by:  data.referredBy || "N/A",
+      interests:    data.interests  || "Not specified",
+      message:      data.message    || "No message",
+      timestamp:    ts
+    }).catch(function(e){ console.warn("Team email failed:", e); });
 
     document.getElementById("successOverlay").classList.add("show");
     window.scrollTo({ top:0, behavior:"smooth" });
