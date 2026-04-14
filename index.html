@@ -104,7 +104,7 @@ textarea{resize:vertical;min-height:90px;}
     <div class="party-tag">&#x1F981; Official NRI Chapter &middot; Atlanta, Georgia</div>
     <div class="hero-title">
       <div><span class="red">Janasena</span></div>
-      <div><span class="gold">Registration</span></div>
+      <div><span class="red">Registration</span></div>
       <div>Form</div>
     </div>
     <div class="hero-sub">Team Atlanta Janasena (TAJ) &middot; Georgia, USA</div>
@@ -122,7 +122,7 @@ textarea{resize:vertical;min-height:90px;}
     <div class="card">
       <div class="field">
         <label>Full Name</label>
-        <div class="hint">Enter your name exactly as on your passport or Aadhar card.</div>
+        <div class="hint">Enter your name exactly as on your passport or Aadhaar card.</div>
         <input type="text" id="fullName" placeholder="e.g. Ravi Kumar Reddy" required>
       </div>
       <div class="field-row">
@@ -138,7 +138,7 @@ textarea{resize:vertical;min-height:90px;}
         </div>
       </div>
       <div class="field">
-        <label>Aadhar / Passport Number</label>
+        <label>Aadhaar / Passport Number</label>
         <div class="hint">Used strictly for identity verification &mdash; never shared externally.</div>
         <input type="text" id="identity" placeholder="XXXX XXXX XXXX  or  A1234567" required>
         <div class="info-box"><span class="ico">&#x1F512;</span> Your ID is used only for membership verification. Never displayed or shared.</div>
@@ -277,7 +277,7 @@ textarea{resize:vertical;min-height:90px;}
     Your registration is confirmed! &#x2705;<br>
     A confirmation email has been sent to your inbox.<br>
     A coordinator will reach you within 3&ndash;5 business days.<br><br>
-    <strong style="color:#FFD700">Together we rise. &#x0C1C;&#x0C2F; &#x0C1C;&#x0C28;&#x0C38;&#x0C47;&#x0C28;! &#x1F981;</strong>
+    <strong style="color:#FFD700">Together we rise. &#x0C1C;&#x0C48; &#x0C1C;&#x0C28;&#x0C38;&#x0C47;&#x0C28;! &#x1F981;</strong>
   </div>
   <button class="btn-submit" onclick="document.getElementById('successOverlay').classList.remove('show');document.getElementById('regForm').reset();resetCascade();" style="font-size:18px;padding:14px 36px">Register Another Member</button>
 </div>
@@ -351,37 +351,68 @@ function loadCities() {
 const INDIA_DATA = {
   "Andhra Pradesh": {
     "Srikakulam": ["Ichchapuram","Palasa","Tekkali","Pathapatnam","Srikakulam","Amadalavalasa","Narasannapeta","Rajam","Hiramandalam","Palakonda","Vangara","Kurupam"],
-    "Vizianagaram": ["Cheepurupalli","Gajapathinagaram","Vizianagaram","Srungavarapukota","Bheemunipatnam","Nellimarla","Bobbili","Salur","Pachipenta","Mentada"],
-    "Visakhapatnam": ["Bheemunipatnam","Anakapalli","Chodavaram","Madugula","Araku Valley","Paderu","Makavarapalem","Narsipatnam","Yelamanchili","Payakaraopeta","Visakhapatnam North","Visakhapatnam South","Visakhapatnam East","Visakhapatnam West","Gajuwaka"],
-    "East Godavari": ["Prathipadu","Jagannadhapuram","Rajanagaram","Rajahmundry","Kovvur","Nidadavole","Pithapuram","Kakinada Rural","Kakinada City","Samarlakota","Amalapuram","Razole","Mummidivaram","Alamuru","Mandapeta"],
-    "West Godavari": ["Narsapur","Undi","Tanuku","Tadepalligudem","Gopalapuram","Denduluru","Eluru","Kaikaluru","Nuzvid","Gannavaram","Gudivada","Bhimavaram","Narasapuram","Palakol","Penamaluru","Kovvur"],
-    "Krishna": ["Machilipatnam","Gudivada","Mylavaram","Nandigama","Tiruvuru","Vissannapet","Jaggayyapeta","Penamaluru","Vijayawada East","Vijayawada West","Vijayawada Central","Ibrahimpatnam","Diviseema","Avanigadda","Pamarru","Pedana"],
-    "Guntur": ["Bapatla","Repalle","Addanki","Chirala","Ponnur","Palnadu","Narasaraopet","Sattenapalle","Chilakaluripet","Guntur East","Guntur West","Prathipadu","Tadikonda","Mangalagiri","Tenali","Pedakurapadu","Macherla","Gurazala","Vinukonda","Amaravati"],
-    "Prakasam": ["Addanki","Chirala","Santhamaguluru","Kandukur","Ongole","Kondapi","Markapur","Giddalur","Kanigiri","Darsi","Podili","Yerragondapalem","Cumbum"],
-    "Nellore": ["Kavali","Atmakur","Podalakur","Nellore City","Sarvepalli","Gudur","Sullurpeta","Naidupet","Venkatagiri","Rapur","Kovur"],
-    "Chittoor": ["Nagari","Gangadhara Nellore","Chandragiri","Tirupati","Srikalahasti","Pakala","Madanapalle","Punganur","Puthalapattu","Chittoor","Piler","Palamaner","Kuppam","Pileru"],
-    "YSR Kadapa": ["Rajampet","Kodur","Kamalapuram","Pulivendula","Badvel","Proddutur","Mydukur","Kadapa","Jammalamadugu","Proddatur","Yerraguntla","Vempalle","Rayachoti"],
-    "Kurnool": ["Allagadda","Srisailam","Nandikotkur","Nandyal","Banaganapalle","Dhone","Pattikonda","Kurnool","Panyam","Yemmiganur","Adoni","Alur","Mantralayam"],
-    "Anantapur": ["Hindupur","Penukonda","Madakasira","Dharmavaram","Kadiri","Tadipatri","Singanamala","Anantapur","Kalyandurg","Uravakonda","Guntakal","Rayadurgam","Rapthadu","Gooty"]
+    "Parvathipuram Manyam": ["Salur","Parvathipuram","Bobbili","Chipurupalle","Garividi","Cheepurupalli","Mentada","Pachipenta"],
+    "Vizianagaram": ["Vizianagaram","Srungavarapukota","Nellimarla","Gajapathinagaram","Bheemunipatnam","Bobbili"],
+    "Alluri Sitharama Raju": ["Paderu","Araku Valley","Chintapalle","G.Madugula","Buttayagudem","Koyyuru","Narsipatnam"],
+    "Anakapalli": ["Anakapalli","Chodavaram","Yelamanchili","Payakaraopeta","Bheemunipatnam"],
+    "Visakhapatnam": ["Visakhapatnam North","Visakhapatnam South","Visakhapatnam East","Visakhapatnam West","Gajuwaka","Bheemunipatnam"],
+    "Kakinada": ["Kakinada Rural","Kakinada City","Samarlakota","Pithapuram","Prathipadu","Jaggampeta"],
+    "East Godavari": ["Rajanagaram","Rajahmundry City","Rajahmundry Rural","Amalapuram","Razole","Mummidivaram","Alamuru","Mandapeta","Kovvur","Nidadavole"],
+    "Konaseema": ["Amalapuram","Razole","Mummidivaram","Alamuru","Mandapeta","Kothapeta","Ramachandrapuram"],
+    "Eluru": ["Eluru","Denduluru","Gopalapuram","Polavaram","Chintalapudi","Nuzvid"],
+    "West Godavari": ["Bhimavaram","Undi","Tanuku","Tadepalligudem","Palakol","Narsapur","Narasapuram"],
+    "NTR": ["Vijayawada East","Vijayawada West","Vijayawada Central","Penamaluru","Tiruvuru","Nandigama"],
+    "Krishna": ["Machilipatnam","Gudivada","Mylavaram","Jaggayyapeta","Gannavaram","Ibrahimpatnam","Avanigadda","Pamarru","Pedana"],
+    "Bapatla": ["Bapatla","Repalle","Addanki","Chirala","Ponnur","Karlapalem","Narasaraopet"],
+    "Palnadu": ["Narasaraopet","Sattenapalle","Chilakaluripet","Macherla","Gurazala","Vinukonda","Rentachintala"],
+    "Guntur": ["Guntur East","Guntur West","Tadikonda","Mangalagiri","Prathipadu","Tenali","Amaravati"],
+    "Prakasam": ["Ongole","Kandukur","Darsi","Podili","Cumbum","Markapur","Giddalur","Kanigiri","Kondapi","Santhamaguluru"],
+    "Nellore": ["Nellore City","Kavali","Atmakur","Podalakur","Sarvepalli","Gudur","Sullurpeta","Naidupet","Venkatagiri","Rapur","Kovur"],
+    "Tirupati": ["Tirupati","Srikalahasti","Chandragiri","Pakala","Nagari","Puttur"],
+    "Chittoor": ["Chittoor","Madanapalle","Punganur","Puthalapattu","Piler","Palamaner","Kuppam","Pileru"],
+    "Annamayya": ["Rajampeta","Rayachoti","Kamalapuram","Vempalle","Jammalamadugu"],
+    "YSR Kadapa": ["Kadapa","Pulivendula","Badvel","Proddutur","Mydukur","Yerraguntla","Kodur"],
+    "Kurnool": ["Kurnool","Nandyal","Allagadda","Srisailam","Nandikotkur","Banaganapalle","Dhone","Pattikonda","Panyam","Yemmiganur","Adoni","Alur","Mantralayam"],
+    "Nandyal": ["Nandyal","Allagadda","Srisailam","Nandikotkur","Banaganapalle","Dhone","Pattikonda"],
+    "Sri Sathya Sai": ["Hindupur","Penukonda","Madakasira","Dharmavaram","Kadiri"],
+    "Anantapur": ["Anantapur","Tadipatri","Singanamala","Kalyandurg","Uravakonda","Guntakal","Rayadurgam","Gooty"]
   },
   "Telangana": {
-    "Hyderabad": ["Secunderabad","Karwan","Goshamahal","Charminar","Chandrayangutta","Yakutpura","Bahadurpura","Nampally","Sanathnagar","Amberpet","Khairatabad","Jubilee Hills"],
+    "Adilabad": ["Adilabad","Boath","Nirmal","Bhainsa","Utnoor","Ichoda","Wankidi"],
+    "Kumuram Bheem Asifabad": ["Asifabad","Sirpur","Luxettipet","Mancherial","Bellampalli"],
+    "Mancherial": ["Mancherial","Bellampalli","Chennur","Luxettipet","Naspur"],
+    "Nirmal": ["Nirmal","Bhainsa","Mudhole","Dichpally","Armoor"],
+    "Nizamabad": ["Nizamabad Urban","Nizamabad Rural","Armoor","Banswada","Yellareddy","Balkonda","Bodhan","Bheemgal","Dichpally"],
+    "Kamareddy": ["Kamareddy","Banswada","Yellareddy","Nizamsagar","Bichkunda","Bhiknoor"],
+    "Rajanna Sircilla": ["Sircilla","Vemulawada","Ellandakunta","Choppadandi","Gambhiraopet"],
+    "Karimnagar": ["Karimnagar","Huzurabad","Husnabad","Jagityal","Metpally","Manthani","Dharmapuri","Koratla","Choppadandi"],
+    "Peddapalli": ["Manthani","Sulthanabad","Ramagundam","Peddapalli","Dharmapuri"],
+    "Jayashankar Bhupalpally": ["Bhupalpally","Mahadevpur","Warangal Rural"],
+    "Mulugu": ["Mulugu","Eturnagaram","Venkatapuram"],
+    "Bhadradri Kothagudem": ["Kothagudem","Aswaraopeta","Bhadrachalam","Yellandu","Pinapaka","Palwancha"],
+    "Khammam": ["Khammam","Palair","Madhira","Wyra","Sathupally","Khammam Rural"],
+    "Nalgonda": ["Nalgonda","Miryalaguda","Nagarjuna Sagar","Huzurnagar","Kodad","Tirumalgiri","Ramannapeta","Devarakonda"],
+    "Suryapet": ["Suryapet","Kodad","Huzurnagar","Nadigudem","Mothkur"],
+    "Yadadri Bhuvanagiri": ["Bhongir","Aler","Munugode","Nakrekal","Choutuppal","Yadagirigutta"],
+    "Medchal Malkajgiri": ["Malkajgiri","Medchal","Quthbullapur","Kukatpally","Uppal","Medipally","Saroornagar","Boduppal"],
+    "Hyderabad": ["Secunderabad","Karwan","Goshamahal","Charminar","Chandrayangutta","Yakutpura","Bahadurpura","Nampally","Sanathnagar","Amberpet","Khairatabad","Jubilee Hills","Musheerabad","Malakpet"],
     "Rangareddy": ["LB Nagar","Maheshwaram","Rajendranagar","Serilingampally","Chevella","Parigi","Tandur","Vikarabad","Kodangal","Kalwakurthy","Shadnagar","Ibrahimpatnam"],
-    "Medchal-Malkajgiri": ["Malkajgiri","Medchal","Quthbullapur","Kukatpally","Uppal","Medipally","Saroornagar","Boduppal","Secunderabad Cantonment"],
-    "Sangareddy": ["Sangareddy","Andole","Narayankhed","Patancheru","Zaheerabad","Ameenpur","Ramayampet","Medak","Narsapur","Dubbak","Siddipet","Gajwel"],
-    "Nizamabad": ["Nizamabad Urban","Nizamabad Rural","Armoor","Banswada","Yellareddy","Balkonda","Bodhan","Bheemgal","Nizamabad"],
-    "Karimnagar": ["Karimnagar","Choppadandi","Sircilla","Vemulawada","Huzurabad","Husnabad","Jagityal","Metpally","Manthani","Dharmapuri","Koratla"],
-    "Peddapalli": ["Peddapalli","Sulthanabad","Manthani","Karimnagar Rural","Jammikunta","Huzurabad"],
-    "Warangal Urban": ["Warangal East","Warangal West","Parkal","Narsampet","Station Ghanpur","Palakurthi","Jangaon"],
-    "Warangal Rural": ["Bhupalpally","Mulug","Narsampet","Mahabubabad","Dornakal","Pinapaka"],
-    "Khammam": ["Khammam","Palair","Madhira","Wyra","Sathupally","Kothagudem","Aswaraopeta","Bhadrachalam","Yellandu","Pinapaka"],
-    "Nalgonda": ["Nalgonda","Miryalaguda","Nagarjuna Sagar","Bhongir","Aler","Munugode","Huzurnagar","Kodad","Suryapet","Nadigudem","Tirumalgiri","Ramannapeta"],
-    "Mahabubnagar": ["Mahabubnagar","Narayanpet","Shadnagar","Achampet","Nagarkurnool","Wanaparthy","Gadwal","Alampur","Jadcherla","Devarkadra","Makthal","Kollapur"],
-    "Adilabad": ["Adilabad","Boath","Nirmal","Mudhole","Bhainsa","Mancherial","Bellampalli","Chennur","Luxettipet","Asifabad","Wankidi","Utnoor","Ichoda"]
+    "Vikarabad": ["Vikarabad","Parigi","Tandur","Kodangal","Makthal"],
+    "Sangareddy": ["Sangareddy","Andole","Narayankhed","Patancheru","Zaheerabad","Ameenpur","Ramayampet","Narsapur","Dubbak"],
+    "Medak": ["Medak","Narsapur","Toopran","Ramayampet","Siddipet"],
+    "Siddipet": ["Siddipet","Gajwel","Dubbak","Husnabad","Chinthalapalem"],
+    "Jangaon": ["Jangaon","Ghanpur Station","Palakurthi","Devaruppal"],
+    "Hanamkonda": ["Hanamkonda","Warangal East","Warangal West","Parkal","Narsampet"],
+    "Warangal": ["Warangal East","Warangal West","Hanamkonda","Parkal","Narsampet","Dornakal"],
+    "Mahabubabad": ["Mahabubabad","Narsampet","Thorrur","Dornakal","Kesamudram"],
+    "Wanaparthy": ["Wanaparthy","Gadwal","Alampur","Kollapur","Nagarkurnool"],
+    "Nagarkurnool": ["Nagarkurnool","Achampet","Kollapur","Wanaparthy","Kalwakurthy"],
+    "Narayanpet": ["Narayanpet","Makthal","Devarkadra","Mahabubnagar"],
+    "Mahabubnagar": ["Mahabubnagar","Jadcherla","Devarkadra","Shadnagar","Kollapur"],
+    "Jogulamba Gadwal": ["Gadwal","Alampur","Wanaparthy","Makthal"],
+    "Khammam Rural": ["Sathupally","Madhira","Wyra","Palair","Nelakondapally"]
   }
 };
-
-// ── CASCADE DROPDOWNS ─────────────────────────────────────────────
 function loadDistricts() {
   var state    = document.getElementById("indiaState").value;
   var distSel  = document.getElementById("district");
@@ -446,7 +477,7 @@ async function handleSubmit() {
   const statusMsg = document.getElementById("statusMsg");
   statusMsg.style.display = "none";
 
-  const reqIds = ["fullName","email","profession","identity","usState","usCity","usPhone","indiaPhone","indiaState","district","constituency","referredBy"];
+  const reqIds = ["fullName","email","usPhone","referredBy"];
   let valid = true, firstBad = null;
   reqIds.forEach(id => {
     const el = document.getElementById(id);
@@ -458,7 +489,7 @@ async function handleSubmit() {
 
   if (!valid) {
     firstBad.scrollIntoView({ behavior:"smooth", block:"center" });
-    statusMsg.textContent   = "\u26A0\uFE0F Please fill all required fields marked with \u2605";
+    statusMsg.textContent   = "\u26A0\uFE0F Please fill Full Name, Email, US Phone and Referred By fields.";
     statusMsg.style.color   = "#FF4466";
     statusMsg.style.display = "block";
     return;
