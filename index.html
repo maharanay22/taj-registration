@@ -492,8 +492,8 @@ async function handleSubmit() {
     window.scrollTo({ top:0, behavior:"smooth" });
 
   } catch(err) {
-    console.error(err);
-    statusMsg.textContent   = "\u274C Submission failed. Please try again or contact team.atlanta.janasena@gmail.com";
+    console.error("Firebase error:", err);
+    statusMsg.textContent   = "\u274C Error: " + (err.message || err.code || "Unknown error");
     statusMsg.style.color   = "#FF4466";
     statusMsg.style.display = "block";
   } finally {
