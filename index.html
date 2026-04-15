@@ -519,11 +519,15 @@ async function handleSubmit() {
 
   try {
     // 1) Save to Firebase
-    await db.ref("taj_registrations").push(data);
+    try {
+      await db.ref("taj_registrations").push(data);
+    } catch(fbErr) {
+      throw new Error("Database error: " + (fbErr.message || fbErr.code || "Could not save. Check Firebase rules."));
+    }
 
     // 2) Send confirmation email to member
     var ts = new Date().toLocaleString("en-US", {timeZone:"America/New_York"});
-    emailjs.send("service_in8q8ll", "template_taj_member", {
+    try { emailjs.send("service_in8q8ll", "template_taj_member", {
       to_name:      data.fullName,
       to_email:     data.email,
       profession:   data.profession,
@@ -536,10 +540,10 @@ async function handleSubmit() {
       referred_by:  data.referredBy || "N/A",
       interests:    data.interests  || "Not specified",
       timestamp:    ts
-    }).catch(function(e){ console.warn("Member email failed:", e); });
+    }); } catch(e){ console.warn("Member email failed:", e); }
 
     // 3) Send notification email to team
-    emailjs.send("service_in8q8ll", "template_taj_team", {
+    try { emailjs.send("service_in8q8ll", "template_taj_team", {
       member_name:  data.fullName,
       email:        data.email,
       profession:   data.profession,
@@ -553,7 +557,7 @@ async function handleSubmit() {
       interests:    data.interests  || "Not specified",
       message:      data.message    || "No message",
       timestamp:    ts
-    }).catch(function(e){ console.warn("Team email failed:", e); });
+    }); } catch(e){ console.warn("Team email failed:", e); }
 
     document.getElementById("successOverlay").classList.add("show");
     window.scrollTo({ top:0, behavior:"smooth" });
