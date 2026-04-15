@@ -542,8 +542,8 @@ async function handleSubmit() {
       timestamp:    ts
     }); } catch(e){ console.warn("Member email failed:", e); }
 
-    // 3) Send notification email to team
-    try { emailjs.send("service_in8q8ll", "template_taj_team", {
+    // 3) Team notification disabled (Gmail sending limit)
+    /* emailjs.send("service_in8q8ll", "template_taj_team", {
       member_name:  data.fullName,
       email:        data.email,
       profession:   data.profession,
@@ -557,7 +557,7 @@ async function handleSubmit() {
       interests:    data.interests  || "Not specified",
       message:      data.message    || "No message",
       timestamp:    ts
-    }); } catch(e){ console.warn("Team email failed:", e); }
+    }); } */ // end team email
 
     document.getElementById("successOverlay").classList.add("show");
     window.scrollTo({ top:0, behavior:"smooth" });
